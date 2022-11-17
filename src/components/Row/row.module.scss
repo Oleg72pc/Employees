@@ -1,0 +1,14 @@
+.container {
+  margin: 5px;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.tableCell {
+ padding-left: 5px;
+ width: 250px;
+ border: 1px solid silver;
+}
