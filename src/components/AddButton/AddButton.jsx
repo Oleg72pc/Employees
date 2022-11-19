@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import style from './addButton.module.scss'
 
-export default function AddButton() {
+export default function AddButton({toggleModalAdd}) {
   return (
-    <button>Добавить сотрудника</button>
+    <button 
+    onClick={toggleModalAdd}     
+    className={style.button}>Добавить сотрудника</button>
   )
 }
 

@@ -1,24 +1,20 @@
-import{
-  INIT_EMPLOYEES
+import {
+  INIT_EMPLOYEES,
+  ADD_EMPLOYEE
 } from '../actionTypes/employeesAT';
-import companyEmployees from '../../data/employees.json';
 
 const initialState = {
-  employees:companyEmployees,
+  employees:[],
   };
 
 export const employeesReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case INIT_EMPLOYEES:
-      return { ...state};
+      return { ...state, employees: action.payload };
 
-    //   case FILTER_TARIFFS :
-    //   const vpsPlans = [...state.tariffs];
-    //   let vpsPlansEdit = [];
-    //   if(action.payload.target.value === '0') vpsPlansEdit = vpsPlans;
-    //   else vpsPlansEdit = vpsPlans.filter(el => el.category_id === action.payload.target.value);
-    //   return {...state, filterTariffs: vpsPlansEdit}
+    case ADD_EMPLOYEE:
+      return { ...state, employee: [...state.employees, action.payload] };
         
     // case FILTER_SOFTWARE :
     //   const filterSoftwares = action.payload.target.value.split(',');

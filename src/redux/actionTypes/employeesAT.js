@@ -1,1 +1,2 @@
 export const INIT_EMPLOYEES = 'INIT_EMPLOYEES';
+export const ADD_EMPLOYEE = 'ADD_EMPLOYEE';

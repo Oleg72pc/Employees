@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './components/App/App';
+import MainPage from './pages';
 import { Provider } from 'react-redux';
 import * as ReactDOMClient from 'react-dom/client';
 import { store } from './redux/store';
@@ -10,5 +10,5 @@ const root = ReactDOMClient.createRoot(container);
 
 root.render(
   <Provider store={store}>
-    <App/>
+    <MainPage/>
   </Provider>);

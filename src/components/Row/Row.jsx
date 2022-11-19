@@ -2,15 +2,15 @@ import React from 'react';
 import style from './row.module.scss'
 
 export default function Row({employee}) {
-  console.log('!Row-render!');
-
-  return (
+  console.log("ROW!!");
+ return (
      <div className={style.container}>
         <span className={style.tableCell}> {employee.name}</span> 
         {
         (employee.role === 'driver' && <span className={style.tableCell}>Водитель</span>) ||
         (employee.role === 'waiter' && <span className={style.tableCell}>Официант</span>) ||
-        (employee.role === 'cook' && <span className={style.tableCell}>Повар</span>) 
+        (employee.role === 'cook' && <span className={style.tableCell}>Повар</span>) ||
+        <span className={style.tableCell}>Должность не указана</span>
         }
         <span className={style.tableCell}> {employee.phone} </span> 
         <span className={style.tableCell}> {employee.birthday}</span> 
