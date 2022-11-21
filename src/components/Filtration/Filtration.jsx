@@ -28,8 +28,7 @@ export default function Filtration() {
        <div className={style.categoriesElement} >
           Должность:
           <select onChange={handleInputChange} className={style.select} 
-                  name="role"
-                  id="role">
+                  name="role">
             <option value="waiter">Официант</option>
             <option value="cook">Повар</option>
             <option value="driver">Водитель</option>
@@ -41,8 +40,7 @@ export default function Filtration() {
           <input className={style.checkbox} 
           onClick={handleInputChange}
           type="checkbox"
-          name='isArchive'
-          id='isArchive' />
+          name='isArchive'/>
         </div>
 
     </div>

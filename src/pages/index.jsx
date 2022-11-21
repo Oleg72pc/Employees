@@ -21,7 +21,7 @@ export default function App() {
     order: 'asc'
   });
   const dispatch = useDispatch();
-  
+
   React.useEffect(() => { 
     dispatch(getFetchInitEmployees(sortType));
     setIsLoading(false);

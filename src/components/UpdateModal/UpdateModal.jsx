@@ -28,10 +28,6 @@ export default function UpdateModal({toggleModalUpdate, employee}) {
      }
   };
   
-  React.useEffect(() => {
-    dispatch(putFetchUpdate(formState));
-  }, [dispatch, formState])
-  
   const handleDelete = (event) => {
     event.preventDefault();
     dispatch(deliteFetchEmployee(employee.id));
@@ -52,7 +48,6 @@ export default function UpdateModal({toggleModalUpdate, employee}) {
           onChange={handleInputChange} 
           type="text" 
           name='name' 
-          id='name'
           placeholder="Ф.И.О. сотрудника" />
         </label>
         {!formState.name && <span className={style.info}>* Заполните поле сотрудник</span>}
@@ -62,7 +57,6 @@ export default function UpdateModal({toggleModalUpdate, employee}) {
           <select className={style.select} 
           defaultValue={employee.role}
           name="role"
-          id="role" 
           onChange={handleInputChange}>
             <option value="waiter">Официант</option>
             <option value="cook">Повар</option>
@@ -77,7 +71,6 @@ export default function UpdateModal({toggleModalUpdate, employee}) {
           onChange={handleInputChange} 
           type="text" 
           name='phone'
-          id='phone'
           placeholder="+7 (___) ___-____" />
         </label>
         {!formState.phone && <span className={style.info}>* Заполните поле телефон</span>}
@@ -89,7 +82,6 @@ export default function UpdateModal({toggleModalUpdate, employee}) {
           onChange={handleInputChange} 
           type="text"
           name='birthday'
-          id='birthday'
           placeholder="__.__.____" />
         </label>
         {!formState.birthday && <span className={style.info}>* Заполните поле дата рождения</span>}
@@ -102,7 +94,7 @@ export default function UpdateModal({toggleModalUpdate, employee}) {
           onClick={handleInputChangeisArchive}
           type="checkbox"
           name='isArchive'
-          id='isArchive' />
+           />
         </label>
         
         <div className={style.buttonForm}>
