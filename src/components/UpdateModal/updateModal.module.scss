@@ -27,6 +27,7 @@
   margin: 5px;
   font-size: 20px;
   font-weight: 700;
+  color: #525252;
 }
 
 .form {
@@ -54,10 +55,22 @@
   border: 2px solid #5f9ea0;
 }
 
+.checkbox {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
 .info {
   margin-left: 10px;
   font-size: 12px;
   color: #b93737;
+}
+
+.buttonForm {
+display: flex;
+justify-content: space-evenly;
 }
 
 .button {
@@ -68,7 +81,7 @@
   padding: 10px;
   border-radius: 5px;
   margin: 5px;
-  font-size: 18px;
+  font-size: 16px;
   align-self: flex-end;
 }
 

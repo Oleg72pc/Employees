@@ -1,0 +1,49 @@
+.sort {
+  position: relative;
+  .label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 10px;
+    z-index: 100;
+
+    svg {
+      margin-right: 8px;
+    }
+
+    b {
+      margin-right: 8px;
+    }
+
+    span {
+      color: #5f9ea0;
+      border-bottom: 1px dashed #5f9ea0;
+      cursor: pointer;
+    }
+  }
+
+  .popup {
+    position: absolute;
+    right: 0;
+    margin: 5px 5px 0 0;
+    background: #dcdbdb;
+    border: 2px solid #5f9ea0;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.325);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 10px 0;
+    
+    ul {
+      overflow: hidden;
+      li {
+        padding: 12px 20px;
+        cursor: pointer;
+
+        &:hover {
+          color: #ffffff;
+          background: #5f9ea0;
+        }
+      }
+    }
+  }
+}

@@ -1,14 +1,27 @@
-.container {
+.row {
+  background: #ededed;
   margin: 5px;
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  font-size: 20px;
+  cursor: pointer;
+}
+.rowActive {
+  background: #5f9ea0;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
   font-size: 20px;
   cursor: pointer;
 }
 
-.tableCell {
+.cell {
  padding-left: 5px;
- width: 250px;
  border: 1px solid silver;
+ overflow: hidden;
+ box-shadow: 0px 3px 5px #3dbdf669;
 }

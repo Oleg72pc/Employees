@@ -1,21 +1,34 @@
 import React from 'react';
-import style from './row.module.scss'
+import { useDispatch } from 'react-redux';
+import { updateEmployeeAC } from '../../redux/actionCreators/employeesAC';
+import UpdateModal from '../UpdateModal/UpdateModal';
+import style from './row.module.scss';
 
-export default function Row({employee}) {
-  console.log("ROW!!");
+export default function Row({ employee }) {
+  const dispatch = useDispatch();
+  const [showModalUpdate, setShowModalUpdate] = React.useState(false);
+  const [activRow, setActiveForm] = React.useState(false);
+  
+  const toggleModalUpdate = () => {
+    dispatch(updateEmployeeAC(employee));
+    setShowModalUpdate(!showModalUpdate);
+    setActiveForm(!activRow);
+  };
+
  return (
-     <div className={style.container}>
-        <span className={style.tableCell}> {employee.name}</span> 
+  <>
+  { showModalUpdate && <UpdateModal toggleModalUpdate={toggleModalUpdate} employee={employee}/>}
+   <div className={ activRow ? style.rowActive : style.row} onClick={toggleModalUpdate}>
+        <span className={style.cell} title={employee.name}> {employee.name}</span> 
         {
-        (employee.role === 'driver' && <span className={style.tableCell}>Водитель</span>) ||
-        (employee.role === 'waiter' && <span className={style.tableCell}>Официант</span>) ||
-        (employee.role === 'cook' && <span className={style.tableCell}>Повар</span>) ||
-        <span className={style.tableCell}>Должность не указана</span>
+        (employee.role === 'driver' && <span className={style.cell}>Водитель</span>) ||
+        (employee.role === 'waiter' && <span className={style.cell}>Официант</span>) ||
+        (employee.role === 'cook' && <span className={style.cell}>Повар</span>) ||
+        <span className={style.cell}>Должность не указана</span>
         }
-        <span className={style.tableCell}> {employee.phone} </span> 
-        <span className={style.tableCell}> {employee.birthday}</span> 
-        <span className={style.tableCell}>  <input type="checkbox" defaultChecked={employee.isArchive}></input></span> 
+        <span className={style.cell} title={employee.phone}> {employee.phone} </span> 
     </div>
+    </>
   )
 }
 

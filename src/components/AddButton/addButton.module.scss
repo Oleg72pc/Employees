@@ -1,3 +1,8 @@
+.btn {
+display: flex;
+justify-content: flex-end;
+}
+
 .button {
   cursor: pointer;
   background: #5f9ea0;
@@ -6,10 +11,17 @@
   padding: 10px;
   border-radius: 5px;
   margin: 5px;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .button:active {
   background: #85e4e8;
   border: 1px solid #5f9ea0;
+}
+
+@media (max-width: 376px) {
+  .button {
+    font-size: 14px;
+  }
 }

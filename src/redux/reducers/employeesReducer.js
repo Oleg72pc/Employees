@@ -1,9 +1,13 @@
 import {
   INIT_EMPLOYEES,
-  ADD_EMPLOYEE
+  ADD_EMPLOYEE,
+  UPDATE_EMPLOYEE,
+  DELITE_EMPLOYEE,
+  FILTER_EMPLOYEE
 } from '../actionTypes/employeesAT';
 
 const initialState = {
+  employeesDefault:[],
   employees:[],
   };
 
@@ -11,19 +15,35 @@ export const employeesReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case INIT_EMPLOYEES:
-      return { ...state, employees: action.payload };
+      return { ...state,
+        employeesDefault: action.payload,
+        employees: action.payload
+      };
 
     case ADD_EMPLOYEE:
-      return { ...state, employee: [...state.employees, action.payload] };
-        
-    // case FILTER_SOFTWARE :
-    //   const filterSoftwares = action.payload.target.value.split(',');
-    //   let editSoftwares = filterSoftwares.map(el => el === 'isp' ? el = ['vps_isp6_lite', 'vps_isp6_pro', 'vps_isp6_host'] : el)
-    //   editSoftwares = editSoftwares.flat();
-    //   return {...state, filterSoftwares: state.softwares
-    //     .filter(el => editSoftwares
-    //       .includes(el.name))}
+      return { ...state,
+         employees: [...state.employees, action.payload],
+         employeesDefault: [...state.employeesDefault, action.payload]};
 
+    case UPDATE_EMPLOYEE:
+       return { ...state,
+        employeesDefault: [...state.employeesDefault
+          .map(employee => employee.id === action.payload.id ? action.payload : employee)],
+        employees: [...state.employees
+          .map(employee => employee.id === action.payload.id ? action.payload : employee)]};
+    
+    case DELITE_EMPLOYEE:
+       return { ...state,
+         employees: [...state.employees
+          .filter(employee => employee.id !== action.payload.id)],
+         employeesDefault: [...state.employeesDefault
+          .filter(employee => employee.id !== action.payload.id)]};
+
+    case FILTER_EMPLOYEE:
+        return { ...state, 
+          employees: [...state.employeesDefault
+          .filter(employee =>  employee.isArchive === action.payload.isArchive && employee.role === action.payload.role)] };
+                 
     default:
       return state;
   }
